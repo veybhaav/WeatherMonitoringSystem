@@ -47,7 +47,7 @@ Dockerfile
 The Dockerfile sets up the environment for running the application:
 
 dockerfile
-Copy code
+
 # Use Python image
 FROM python:3.8-slim
 

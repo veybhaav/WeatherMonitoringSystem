@@ -11,10 +11,12 @@ Threshold-Based Alerts: Alerts if temperature or specific weather conditions exc
 Visualization: Displays daily trends and summaries (e.g., daily temperatures, alert history).
 
 # Prerequisites
+```bash
 Python 3.x
 OpenWeatherMap API Key: Sign up for a free API key from OpenWeatherMap.
 Docker (for optional containerized setup)
 SQLite3 (included with Python)
+```
 
 # Installation & Setup
 Step 1: Clone the Repository
@@ -30,9 +32,9 @@ Alternatively, you can use Docker to create a containerized environment. Follow 
 Step 3: Set Up API Key
 To access weather data, replace "caa0a3e956165b252d08da71b7639280" in the weather_monitoring.py file with your API key from OpenWeatherMap:
 
-
+```bash
 API_KEY = "caa0a3e956165b252d08da71b7639280"
-
+```
 Step 4: Configurations
 City Selection: Modify the list of cities in weather_monitoring.py if you want to monitor different locations.
 API Call Interval: Adjust the API call frequency by changing the interval parameter in fetch_data_periodically function (default is 300 seconds).
@@ -47,7 +49,7 @@ Dockerfile
 The Dockerfile sets up the environment for running the application:
 
 dockerfile
-
+```bash
 # Use Python image
 FROM python:3.8-slim
 
@@ -62,12 +64,12 @@ RUN pip install -r requirements.txt
 
 # Copy the rest of the files
 COPY . .
-
+```
 # Default command to run the application
 CMD ["python", "weather_monitoring.py"]
 docker-compose.yml
 Use Docker Compose to manage services more easily:
-
+```bash
 version: '3.8'
 
 services:
@@ -77,16 +79,18 @@ services:
       - API_KEY=your_api_key_here  # Replace with your OpenWeatherMap API key
     restart: always
 Run Docker Container
+```
 After setting up the Dockerfile and docker-compose.yml, start the project with:
 docker-compose up --build
 # Code Structure
-
+```bash
 WeatherMonitoringSystem/
 ├── weather_monitoring.py       # Main script for fetching, processing, and analyzing data
 ├── requirements.txt            # Lists all required dependencies
 ├── Dockerfile                  # Dockerfile to create a containerized environment
 ├── docker-compose.yml          # Docker Compose file for easier deployment
 └── README.md                   # Project documentation and setup instructions
+```
 # Functionality Overview
 Data Retrieval
 The get_weather_data() function retrieves real-time weather data from OpenWeatherMap, processing the JSON response to extract weather parameters.

@@ -1,0 +1,8 @@
+version: '3.8'
+
+services:
+  weather-monitoring:
+    build: .
+    environment:
+      - API_KEY=your_api_key_here  # Replace with your OpenWeatherMap API key
+    restart: always
